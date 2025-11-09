@@ -33,7 +33,7 @@ export default function CompanyPage() {
       >
         <div className="flex flex-col items-center text-center">
           <img
-            src={company.logo}
+            src={`${import.meta.env.BASE_URL}${company.logo.replace(/^\//, '')}`}
             alt={company.name}
             className="w-20 h-20 mb-6 rounded-full bg-white/10 p-2"
           />

@@ -40,7 +40,7 @@ function ProjectImage({ project }) {
       <motion.img
         whileHover={{ scale: 1.05, rotate: 1 }}
         transition={{ type: "spring", stiffness: 200 }}
-        src={project.image}
+        src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
         alt={project.name}
         className="rounded-xl shadow-lg w-full object-cover h-64"
       />

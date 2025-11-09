@@ -114,7 +114,7 @@ export default function WorkExperience() {
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center text-center">
                 <img
-                  src={company.logo}
+                  src={`${import.meta.env.BASE_URL}${company.logo.replace(/^\//, '')}`}
                   alt={company.name}
                   className="w-16 h-16 mb-4 rounded-full bg-white/10 p-2 object-contain"
                 />
