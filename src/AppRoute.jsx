@@ -15,6 +15,7 @@ export default function AppRoute() {
       <Route path="/skills" element={<SkillsPage />} />
       <Route path="/projects" element={<ProjectPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="*" element={<App />} />
     </Routes>
   );
 }
