@@ -1,0 +1,12 @@
+.tagline-glow {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: glow 3s ease-in-out infinite alternate;
+  color: teal;
+  font-weight: 600;
+  font-style: italic;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(255,255,255,0.1); }
+  to { text-shadow: 0 0 25px rgba(255,255,255,0.5); }
+}

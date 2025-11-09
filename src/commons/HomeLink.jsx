@@ -1,0 +1,13 @@
+import { Link } from "react-router-dom";
+
+export default function HomeLink() {
+    return (
+        <Link to="/" className="text-blue-400 hover:underline">
+            <img
+                src='/logos/lost.png'
+                alt="Lost? Let’s teleport home!"
+                className="w-16 h-16 mb-4 rounded-full bg-white/10 p-2 object-contain"
+            />
+        </Link>
+    );
+}
