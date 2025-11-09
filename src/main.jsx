@@ -5,7 +5,7 @@ import AppRoute from "./AppRoute.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/portfolio">
     <AppRoute />
   </BrowserRouter>
 );
