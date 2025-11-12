@@ -78,7 +78,7 @@ export default function Hero() {
             </div>
             {/* Download Resume */}
             <motion.a
-                href={`${import.meta.env.BASE_URL}files/resume.pdf`}// place your resume in the public folder
+                href={`${import.meta.env.BASE_URL}files/Ritumoni_Sarma_Resume.pdf`}// place your resume in the public folder
                 download
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
