@@ -4,6 +4,7 @@ import ProjectCard from "./ProjectCard";
 import FilterBar from "./FilterBar";
 import { motion } from "framer-motion";
 import HomeLink from "../commons/HomeLink";
+import Header from "./Header";
 
 export default function ProjectsPage() {
   const [active, setActive] = useState("All");
@@ -13,35 +14,39 @@ export default function ProjectsPage() {
     active === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-16">
-      <div className="w-full max-w-6xl flex justify-between items-center mb-16">
-        <div>
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-2xl sm:text-3xl font-bold italic text-gray-100"
-          >
-            Some amazing projects I've worked on
-          </motion.h2>
-          <p className="text-gray-400 text-center mb-12">
-            Each project taught me something new — from scalable systems to stunning UI.
-          </p>
+    <>
+      <Header />
+
+      <div className="relative z-10 min-h-screen text-white flex flex-col items-center py-16">
+        <div className="w-full max-w-6xl flex justify-between items-center mb-16">
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-2xl sm:text-3xl font-bold italic text-gray-100"
+            >
+              Some amazing projects I've worked on
+            </motion.h2>
+            <p className="text-gray-400 text-center mb-12">
+              Each project taught me something new — from scalable systems to stunning UI.
+            </p>
+          </div>
+
+          <div className="shrink-0">
+            <HomeLink />
+          </div>
         </div>
 
-        <div className="shrink-0">
-          <HomeLink />
+
+        <FilterBar categories={categories} active={active} onSelect={setActive} />
+
+        <div className="max-w-5xl mx-auto">
+          {filtered.map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} />
+          ))}
         </div>
       </div>
-
-
-      <FilterBar categories={categories} active={active} onSelect={setActive} />
-
-      <div className="max-w-5xl mx-auto">
-        {filtered.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
-        ))}
-      </div>
-    </div>
+    </>
   );
 }

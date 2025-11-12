@@ -26,8 +26,8 @@ export const companyDetails = {
         color: "from-purple-600 to-purple-800",
         logo: "/logos/upstox.png",
         description: [
-            "Architected and developed a high-performance trading platform user interface using React and Redux",
-            "Implemented real-time data streaming using WebSockets, optimizing real-time data updates for low-latency performance at scale.",
+            "Worked on a high-performance trading platform user interface using React and Redux",
+            "Worked on a real-time data streaming using WebSockets, optimizing real-time data updates for low-latency performance at scale.",
             "Led a cross-functional team of 30+ engineers, establishing coding standards, automated CI/CD pipelines, and Agile best practices to increase development productivity.",
             "Partnered with product and UX teams to build proofs-of-concept (POCs), aligning frontend architecture decisions with trading business priorities and improving stakeholder buy-in.",
         ],

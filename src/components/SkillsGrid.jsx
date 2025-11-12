@@ -63,7 +63,7 @@ export default function SkillsGrid({ debug = false }) {
   }, [uniqueFiltered]);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center p-0">
+    <div className="min-h-screen text-white flex flex-col items-center p-0">
          <div className="w-full max-w-6xl flex justify-between items-center mb-16">
                 <motion.h2
                   initial={{ opacity: 0, y: -20 }}

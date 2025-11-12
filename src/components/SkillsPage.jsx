@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
 import { SKILL_CATEGORIES, SKILLS } from "../data/skillsData";
 import SkillsGrid from "../components/SkillsGrid";
+import Header from "./Header";
 
 export default function SkillsPage() {
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-16 flex flex-col items-center">
+    <>
+      <Header />
 
-     <SkillsGrid skills={SKILLS} />
+      <div className="relative z-10 min-h-screen text-white px-6 py-16 flex flex-col items-center">
 
-    </div>
+        <SkillsGrid skills={SKILLS} />
+
+      </div>
+    </>
   );
 }

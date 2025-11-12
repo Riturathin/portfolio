@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import HomeLink from "../commons/HomeLink";
+import Header from "./Header";
 
 const companies = [
   {
@@ -71,63 +72,67 @@ const companies = [
 
 export default function WorkExperience() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-gray-950 flex flex-col items-center justify-center text-white px-6 py-16 overflow-hidden">
-      
-      {/* Header Section */}
-      <div className="w-full max-w-6xl flex justify-between items-center mb-16">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-2xl sm:text-3xl font-bold italic text-gray-100"
-        >
-          Where the magic (and coffee) happened!
-        </motion.h2>
-        <div className="shrink-0">
-          <HomeLink />
+    <>
+      <Header />
+
+      <div className="min-h-screen relative z-10 flex flex-col items-center justify-center text-white px-6 py-16 overflow-hidden">
+
+        {/* Header Section */}
+        <div className="w-full max-w-6xl flex justify-between items-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-2xl sm:text-3xl font-bold italic text-gray-100"
+          >
+            Where the magic (and coffee) happened!
+          </motion.h2>
+          <div className="shrink-0">
+            <HomeLink />
+          </div>
+        </div>
+
+        {/* Company Tiles */}
+        <div className="w-full max-w-6xl flex flex-wrap justify-center gap-8">
+          {companies.map((company, index) => (
+            <Link key={company.id} to={`/work/${company.id}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  rotate: 0.5,
+                  boxShadow: "0 0 20px rgba(255,255,255,0.3)",
+                }}
+                className={`relative p-6 w-72 rounded-3xl bg-gradient-to-br ${company.color} shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer`}
+              >
+                {/* Glow layer */}
+                <div className="absolute inset-0 rounded-3xl bg-white/10 blur-md"></div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <img
+                    src={`${import.meta.env.BASE_URL}${company.logo.replace(/^\//, '')}`}
+                    alt={company.name}
+                    className="w-16 h-16 mb-4 rounded-full bg-white/10 p-2 object-contain"
+                  />
+                  <h3 className="text-xl font-semibold mb-1 text-gray-100">
+                    {company.name}
+                  </h3>
+                  <p className="text-blue-300 text-sm mb-3">{company.role}</p>
+                  <p className="text-gray-200 text-xs">{company.duration}</p>
+                </div>
+              </motion.div>
+            </Link>
+          ))}
         </div>
       </div>
-
-      {/* Company Tiles */}
-      <div className="w-full max-w-6xl flex flex-wrap justify-center gap-8">
-        {companies.map((company, index) => (
-          <Link key={company.id} to={`/work/${company.id}`}>
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{
-                delay: index * 0.15,
-                duration: 0.6,
-                type: "spring",
-                stiffness: 100,
-              }}
-              whileHover={{
-                scale: 1.05,
-                rotate: 0.5,
-                boxShadow: "0 0 20px rgba(255,255,255,0.3)",
-              }}
-              className={`relative p-6 w-72 rounded-3xl bg-gradient-to-br ${company.color} shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer`}
-            >
-              {/* Glow layer */}
-              <div className="absolute inset-0 rounded-3xl bg-white/10 blur-md"></div>
-
-              {/* Content */}
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <img
-                  src={`${import.meta.env.BASE_URL}${company.logo.replace(/^\//, '')}`}
-                  alt={company.name}
-                  className="w-16 h-16 mb-4 rounded-full bg-white/10 p-2 object-contain"
-                />
-                <h3 className="text-xl font-semibold mb-1 text-gray-100">
-                  {company.name}
-                </h3>
-                <p className="text-blue-300 text-sm mb-3">{company.role}</p>
-                <p className="text-gray-200 text-xs">{company.duration}</p>
-              </div>
-            </motion.div>
-          </Link>
-        ))}
-      </div>
-    </div>
+    </>
   );
 }
